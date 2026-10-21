@@ -1,0 +1,49 @@
+<Task xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task" version="1.2">
+    <RegistrationInfo>
+        <Date>2026-10-21T22:37:52.7740968</Date>
+        <Author>m8wat-pc\ash</Author>
+        <Description>On-Demand sharing of COM Port over TCP on Boot</Description>
+        <URI>\COM over TCP - COM2</URI>
+    </RegistrationInfo>
+    <Triggers>
+        <BootTrigger>
+            <Enabled>true</Enabled>
+        </BootTrigger>
+    </Triggers>
+    <Principals>
+        <Principal id="Author">
+            <UserId>S-1-5-21-3290030301-4180394636-3831173110-1001</UserId>
+            <LogonType>Password</LogonType>
+            <RunLevel>LeastPrivilege</RunLevel>
+        </Principal>
+    </Principals>
+    <Settings>
+        <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+        <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+        <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+        <AllowHardTerminate>true</AllowHardTerminate>
+        <StartWhenAvailable>false</StartWhenAvailable>
+        <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+        <IdleSettings>
+            <StopOnIdleEnd>true</StopOnIdleEnd>
+            <RestartOnIdle>false</RestartOnIdle>
+        </IdleSettings>
+        <AllowStartOnDemand>true</AllowStartOnDemand>
+        <Enabled>true</Enabled>
+        <Hidden>false</Hidden>
+        <RunOnlyIfIdle>false</RunOnlyIfIdle>
+        <WakeToRun>false</WakeToRun>
+        <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>
+        <Priority>7</Priority>
+        <RestartOnFailure>
+            <Interval>PT5M</Interval>
+            <Count>3</Count>
+        </RestartOnFailure>
+    </Settings>
+    <Actions Context="Author">
+        <Exec>
+            <Command>C:\hub4com\hub4com.exe</Command>
+            <Arguments>--share-mode=on --create-filter=escparse,com,parse --create-filter=purge,com,purge --create-filter=pinmap,com,pinmap:"--rts=cts --dtr=dsr --break=break" --create-filter=linectl,com,lc:"--br=remote --lc=remote" --add-filters=0:com --create-filter=telnet,tcp,telnet:" --comport=server --suppress-echo=yes" --create-filter=lsrmap,tcp,lsrmap --create-filter=pinmap,tcp,pinmap:"--cts=cts --dsr=dsr --dcd=dcd --ring=ring" --create-filter=linectl,tcp,lc:"--br=local --lc=local" --add-filters=1:tcp --octs=off "\\.\COM2" --use-driver=tcp "*7000"</Arguments>
+        </Exec>
+    </Actions>
+</Task>
