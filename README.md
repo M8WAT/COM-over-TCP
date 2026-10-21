@@ -4,7 +4,7 @@ Batch files used to share (on-demand) COM Port over TCP to allow remote control 
 
 ## How it Works
 
-Simply, hub4com.exe from the com0com project on sourceforge.
+Simply, hub4com.exe from the com0com project on sourceforge: https://sourceforge.net/projects/com0com/
 
 
 ## Server Side (Where the Serial Device is Connected)
