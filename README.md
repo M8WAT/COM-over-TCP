@@ -45,6 +45,6 @@ Amend the batch file as required. In my setup, the Virtual Serial Port is CNCB0 
 Create a desktop shortcut aimed at C:\hub4com\client-side.bat
 
 
-## Security Reommendation
+## Security Recommendation
 
 If you plan to use your serial device over the internet, I would recommend using Tailscale, Netbird or other VPN solution. I would highly discourage exposing your serial device directly to the internet (usually by NAT port forwarding in your router).
